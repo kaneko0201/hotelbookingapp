@@ -27,6 +27,8 @@ gem 'base64'
 gem 'bigdecimal'
 gem 'psych', '~> 3.0'
 
+gem 'carrierwave', '~> 2.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
