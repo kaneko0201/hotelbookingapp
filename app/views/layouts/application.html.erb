@@ -11,6 +11,32 @@
   </head>
 
   <body>
+    <header>
+      <% if user_signed_in? %>
+        <div class="dropdown">
+          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          </a>
+
+         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <%= link_to 'アカウント', "/users/account", class: 'dropdown-item' %>
+            <%= link_to 'プロフィール', "/users/profile", class: 'dropdown-item' %>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+
+          </div>
+        </div>
+        <div class="user-info">
+        <% if current_user.user_image.present? %>
+          <%= image_tag current_user.user_image.url %>
+        <% else %>
+          <%= image_tag("default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png")%>
+        <% end %>
+        <span><%= current_user.user_name %></span>
+        </div>
+      <% else %>
+        <%= link_to '新規登録', "/users/sign_up" %>
+        <%= link_to 'ログイン', "/users/sign_in" %>
+      <% end %>
+    </header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
