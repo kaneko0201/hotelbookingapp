@@ -1,4 +1,8 @@
 class RoomsController < ApplicationController
+  def index
+    @rooms = Room.all
+  end
+
   def new
     @room = Room.new
   end
@@ -12,7 +16,7 @@ class RoomsController < ApplicationController
     if @room.save
       redirect_to :root
     else
-      render "new"
+      render :new
     end
   end
 end

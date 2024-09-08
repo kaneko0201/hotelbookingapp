@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  get 'users/account', to: 'users#account'
-  get 'users/profile', to: 'users#profile'
-  root 'users#top'
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+  get 'users/account', to: 'users#account'
+  get 'users/profile', to: 'users#profile'
+  get '/rooms/new', to: 'rooms#new'
+  get '/rooms/:id', to: 'rooms#show'
+  root 'users#top'
   resources :users
+  resources :rooms, only: [:new, :create, :show, :index]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

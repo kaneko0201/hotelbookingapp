@@ -26,6 +26,7 @@ gem 'mutex_m'
 gem 'base64'
 gem 'bigdecimal'
 gem 'psych', '~> 3.0'
+gem 'pry-rails'
 
 gem 'carrierwave', '~> 2.0'
 
