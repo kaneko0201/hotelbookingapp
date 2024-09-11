@@ -1,5 +1,7 @@
 <h2>施設登録</h2>
 
+<%= render "shared/error", obj: @room %>
+
 <%= form_with model: @room do |f| %>
   <table>
     <tr>
