@@ -6,10 +6,13 @@ Rails.application.routes.draw do
   get 'users/account', to: 'users#account'
   get 'users/profile', to: 'users#profile'
   get '/rooms/new', to: 'rooms#new'
-  get '/rooms/:id', to: 'rooms#show'
   root 'users#top'
   resources :users
-  resources :rooms, only: [:new, :create, :show, :index]
-
+  resources :rooms do
+    member do
+      get 'search'
+    end
+  end
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
