@@ -27,6 +27,7 @@ gem 'base64'
 gem 'bigdecimal'
 gem 'psych', '~> 3.0'
 gem 'pry-rails'
+gem 'rails-i18n'
 
 gem 'carrierwave', '~> 2.0'
 
