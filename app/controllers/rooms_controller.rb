@@ -12,10 +12,10 @@ class RoomsController < ApplicationController
   end
 
   def search
-    if params[:search].present?
-      @rooms = Room.where("name LIKE ?", "%#{params[:search]}%")
-    else
-      @rooms = Room.all
+    if params[:area].present?
+      @rooms = Room.where("room_address LIKE ?", "%#{params[:area]}%")
+    elsif params[:word].present?
+      @rooms = Room.where("room_name LIKE ? OR room_introduction LIKE ?", "%#{params[:word]}%", "%#{params[:word]}%")
     end
   end
 
