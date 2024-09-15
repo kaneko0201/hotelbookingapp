@@ -23,7 +23,7 @@
         </td>
         <td><%= link_to room.room_name, room_path(room) %></td>
         <td><%= room.room_introduction %></td>
-        <td><%= room.room_fee %></td>
+        <td>¥<%= room.room_fee %></td>
         <td><%= room.created_at.to_s(:datetime_jp) %></td>
       </tr>
     <% end %>
