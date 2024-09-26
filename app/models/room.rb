@@ -10,4 +10,5 @@ class Room < ApplicationRecord
   end
 
   has_many :reservations
+  belongs_to :user
 end

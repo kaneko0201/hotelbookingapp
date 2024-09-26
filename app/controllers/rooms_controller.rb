@@ -1,6 +1,8 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @rooms = Room.all
+    @rooms = current_user.rooms
   end
 
   def new
@@ -19,12 +21,14 @@ class RoomsController < ApplicationController
     end
   end
 
-
   def create
     @room = Room.new(params.require(:room).permit(:room_name, :room_introduction, :room_fee, :room_address))
+    @room.user_id = current_user.id
     if @room.save
-      redirect_to :root
+      flash[:notice] = "予約が完了しました。"
+      redirect_to root_path
     else
+      flash[:alert] = "予約の保存に失敗しました。"
       render :new
     end
   end

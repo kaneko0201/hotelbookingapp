@@ -1,6 +1,7 @@
 <h2>プロフィール</h2>
 
-<%= form_with model: @user do |f| %>
+<%= form_with model: @user, local: true do |f| %>
+
   <table>
     <tr>
       <th>アイコン画像</th>

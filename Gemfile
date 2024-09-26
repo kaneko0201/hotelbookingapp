@@ -28,8 +28,10 @@ gem 'bigdecimal'
 gem 'psych', '~> 3.0'
 gem 'pry-rails'
 gem 'rails-i18n'
-
+gem 'devise-i18n-views'
 gem 'carrierwave', '~> 2.0'
+gem 'bootstrap', '~> 5.1.0'
+gem 'jquery-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
